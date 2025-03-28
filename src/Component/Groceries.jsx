@@ -1,70 +1,58 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, clearCart, removeFromCart } from "../redux/cartSlice";
 import { groceryData } from "./mock";
 import product1 from "../assets/product1.jpg";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart, clearCart } from "../redux/cartSlice";
-
-
 
 import {
     Card,
     CardContent,
     Typography,
     Grid,
-    List,
-    ListItem,
-    ListItemText,
-    Paper,
+    Button,
 } from "@mui/material";
- 
 
-const GroceryCategories = ({setCartItems}) => {
+const GroceryCategories = ({ setCartItems }) => {
     const [selectedCategory, setSelectedCategory] = useState("Fruits & Vegetables");
-    const [crtItems, setCrtItems] = useState([]);
+    const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
-
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category === selectedCategory ? null : category);
     };
 
     const handleAddToCart = (item) => {
-        console.log(item)
-        setCrtItems([...crtItems, item]);
-        setCartItems([...crtItems, item]);
-        dispatch(addToCart([...crtItems, item]))
-        //dispatch(removeFromCart(item.id))
-        //dispatch(clearCart())
+        const itemWithId = { ...item, id: item.id || item.name };
+        dispatch(addToCart(itemWithId));
+    };
 
+    const handleRemoveFromCart = (id) => {
+        dispatch(removeFromCart(id));
+    };
 
-    }
+    const getItemQuantity = (id) => {
+        const item = cartItems.find((item) => item.id === id);
+        return item ? item.quantity : 0;
+    };
 
     return (
         <div style={{ padding: "20px", width: "100%" }}>
-
             {/* Category Cards */}
-            <Grid container xs={12} sx={{display:"flex", justifyContent: "center"}} >
+            <Grid container spacing={2} justifyContent="center">
+                <Button onClick={() => { dispatch(clearCart()) }}>Clear</Button>
                 {groceryData.map((category) => (
-                    <Grid item xs={12/7} key={category.category} >
+                    <Grid item key={category.category}>
                         <Card
                             onClick={() => handleCategoryClick(category.category)}
                             style={{
                                 cursor: "pointer",
-                                backgroundColor:
-                                    selectedCategory === category.category ? "#e0f2f1" : "#fff",
-                                border:
-                                    selectedCategory === category.category
-                                        ? "2px solid #26a69a"
-                                        : "1px solid #ddd",
+                                backgroundColor: selectedCategory === category.category ? "#e0f2f1" : "#fff",
+                                border: selectedCategory === category.category ? "2px solid #26a69a" : "1px solid #ddd",
                             }}
                             elevation={3}
                         >
                             <CardContent>
-                                <Typography
-                                    variant="subtitle1"
-                                    align="center"
-                                    fontWeight="bold"
-                                >
+                                <Typography variant="subtitle1" align="center" fontWeight="bold">
                                     {category.category}
                                 </Typography>
                             </CardContent>
@@ -75,45 +63,30 @@ const GroceryCategories = ({setCartItems}) => {
 
             {/* Product List */}
             {selectedCategory && (
-                <Grid Container xs={12} sx={{display: "flex", flexWrap: "wrap", alignContent: "center", justifyContent: "center"}}>
-                    {/* <Grid item xs={12} >
-                        {selectedCategory}
-                    </Grid> */}
+                <Grid container spacing={2} justifyContent="center">
                     {groceryData
                         .find((cat) => cat.category === selectedCategory)
-                        .products.map((product, index) => (
-
-                            <Grid item xs={3} className="product-card">
+                        .products.map((product) => (
+                            <Grid item xs={3} key={product.id} className="product-card">
                                 <img src={product1} alt="Product 1" />
-                                {product.name}
-                                ₹{product.price}
-                                <button onClick={() => { handleAddToCart(product) }} className="btn">
-                                    Add to Cart
-                                </button>
+                                <Typography>{product.name}</Typography>
+                                <Typography>₹{product.price}</Typography>
+
+                                {/* Show Add to Cart or Quantity Controls */}
+                                {getItemQuantity(product.id) === 0 ? (
+                                    <Button variant="contained" onClick={() => handleAddToCart(product)}>
+                                        Add to Cart
+                                    </Button>
+                                ) : (
+                                    <div style={{ display: "flex", alignItems: "center" }}>
+                                        <Button variant="contained" onClick={() => handleRemoveFromCart(product.id)}>-</Button>
+                                        <Typography style={{ margin: "0 10px" }}>{getItemQuantity(product.id)}</Typography>
+                                        <Button variant="contained" onClick={() => handleAddToCart(product)}>+</Button>
+                                    </div>
+                                )}
                             </Grid>
-
                         ))}
-
                 </Grid>
-                // <Paper
-                //   elevation={4}
-                //   style={{ marginTop: "20px", padding: "16px", backgroundColor: "#fafafa" }}
-                // >
-                //   <List>
-                //     {groceryData
-                //       .find((cat) => cat.category === selectedCategory)
-                //       .products.map((product, index) => (
-                //         <ListItem
-                //           key={index}
-                //           divider
-                //           style={{ display: "flex", justifyContent: "space-between" }}
-                //         >
-                //           <ListItemText primary={product.name} />
-                //           <Typography variant="body1">₹{product.price}</Typography>
-                //         </ListItem>
-                //       ))}
-                //   </List>
-                // </Paper>
             )}
         </div>
     );
