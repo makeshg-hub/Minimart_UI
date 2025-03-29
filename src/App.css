@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 /* Body */
@@ -11,6 +12,7 @@ body {
   line-height: 1.6;
   background-color: #f4f4f4;
   color: #333;
+  
 }
 
 /* Header */
@@ -65,8 +67,8 @@ header nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-  background: url('./assets/hero-bg.jpg') no-repeat center center/cover ;
-  height: 350px;
+  /* background: url('./assets/hero-bg.jpg') no-repeat center center/cover ; */
+  /* height: 350px; */
   color: #fff;
   padding: 100px 20px;
   text-align: center;
@@ -111,7 +113,8 @@ header nav ul li a:hover {
 
 /* Products Section */
 .products {
-  padding: 20px;
+  width: 100vw;
+ 
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -177,4 +180,16 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%
+}
+
+.hdr {
+  /* background: url('./assets/hero-bg.jpg') no-repeat center center/cover ; */
+
+}
+.home {
+  width: 100vw;
+  
+  height: 100vh;
+  overflow-y: auto;
+  background: url('./assets/hero-bg.jpg') no-repeat center center/cover ;
 }

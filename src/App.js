@@ -9,12 +9,22 @@ import Change from "./Component/changepassword";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cart from "./Component/Cart";
+import Header from "./Component/header";
+
+function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      <div className="home">{children}</div>
+    </>
+  );
+}
 
 function App() {
   return (
-    <div style={{ height: "100vh", width: "100vw" }}>
-      <BrowserRouter>
-        <ToastContainer />
+    <BrowserRouter>
+      <ToastContainer />
+      <Layout>
         <Routes>
           <Route index element={<Homepage />} />
           <Route path="/" element={<Homepage />} />
@@ -24,8 +34,8 @@ function App() {
           <Route path="/changepassword" element={<Change />} />
           <Route path="/cart" element={<Cart />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+      </Layout>
+    </BrowserRouter>
   );
 }
 

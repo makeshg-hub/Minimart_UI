@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import Header from "./header";
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -24,6 +25,8 @@ const Cart = () => {
 
 
     return (
+        <>
+        <div className ="home">
         <div style={{ padding: "20px", margin: "auto" }}>
             <Typography variant="h4" align="center" gutterBottom>
                 Your Cart
@@ -103,7 +106,10 @@ const Cart = () => {
                 </div>
             )}
         </div>
+        </div>
+        </>
     );
+   
 };
 
 export default Cart;

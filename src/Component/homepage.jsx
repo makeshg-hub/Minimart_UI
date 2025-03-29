@@ -21,21 +21,6 @@ const Homepage = () => {
   return (
     <>
 
-
-
-      <Header />
-
-      <section className="hero">
-        {/* <div className="search">
-          <input type="search" placeholder="Search" />
-        </div> */}
-        <h2>Welcome to Our Store</h2>
-        <p>Find the best products at unbeatable prices.</p>
-        {/* <a href="#" className="btn">
-          Shop Now
-        </a> */}
-      </section>
-
       <section className="products">
         {/* <h2>Featured Products</h2> */}
         <div className="product-grid">

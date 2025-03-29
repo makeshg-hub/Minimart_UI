@@ -11,14 +11,19 @@ function Header() {
   const dispatch = useDispatch();
   const cartCount = useSelector((state) => state.cart.cartItems.length);
   return (
-    <header>
+    <header style={{background: "#0f4e6d", display: "flex", justifyContent: "space-between", alignItems: "flex-start", position: "fixed", width: "100%", zIndex: "10"}}>
       <div className="logo">
         <h1>Mini Mart</h1>
-        <button onClick={() => navigate('/login')}>Login</button>
+       
+      </div>
+      <div style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
+      <h2>Welcome to Our Store</h2>
+      <p>Find the best products at unbeatable prices.</p>
       </div>
 
       <nav>
-        <ul style={{ background: "#1c5777", display: "flex", alignItems: "center" }}>
+        <ul style={{  display: "flex", alignItems: "center" }}>
+        <button onClick={() => navigate('/login')}>Login</button>
           <li><a href="#"><b>Home</b></a></li>
           <li><a href="#"><b>Contact</b></a></li>
           <li><a href="/cart"><b> <IconButton color="primary">
