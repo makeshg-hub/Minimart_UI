@@ -1,11 +1,24 @@
 import cinthol from "../assets/pictures/bath/cinthol.jpg";
-import beverages from "../assets/pictures/beverages";
+import dettol from "../assets/pictures/bath/dettol.jpg";
+import doveShampoo from "../assets/pictures/bath/dove shampoo.jpg";
+import doveSoap from "../assets/pictures/bath/dove.jpg";
+import himalayaFW from "../assets/pictures/bath/face1.jpg";
+import fw2 from "../assets/pictures/bath/face2.jpg";
+import fw3 from "../assets/pictures/bath/face3.png";
+import hamam from "../assets/pictures/bath/hamam.jpg";
+import himalayaSoap from "../assets/pictures/bath/himalaya soap.jpg";
+ import hsShampoo from "../assets/pictures/bath/hs shampoo.jpg";
+ import karShampoo from "../assets/pictures/bath/kar shampoo.jpg";
+ import pears from "../assets/pictures/bath/pears.jpg ";
+ import sunsilk from "../assets/pictures/bath/sunsilk.jpg";
+
+
 
 export const groceryData = [
   {
     category: "Fruits & Vegetables",
     products: [
-      { name: "Apple (1kg)", price: 180, id: 1, img: beverages },
+      { name: "Apple (1kg)", price: 180, id: 1, img: cinthol },
       { name: "Banana (Dozen)", price: 60, id: 2 },
       { name: "Tomato (1kg)", price: 40, id: 3 },
       { name: "Potato (1kg)", price: 30, id: 4 },
@@ -89,5 +102,83 @@ export const groceryData = [
       { name: "Mayonnaise (500g)", price: 120, id: 52 }
     ]
   },
+  {
+    category:"Soap & Bath",
+    products:[
+        {name:"Cinthol Soap", price:60,id:53, img:cinthol},
+        {name:"Dettol Soap",price:50,id:54, img:dettol},
+        {name:"Dove Soap",price:65,id:55, img:doveShampoo},
+        {name:"Himalaya Facewash",price:120,id:56 ,img:himalayaFW},
+        {name:"Cetaphil Facewash",price:190,id:57, img:fw2},
+        {name:"Clean&clear Facewash",price:235,id:58,img:fw3},
+        {name:"Hamam Soap", price:50,id:59,img:hamam},
+        {name:"Himalaya Soap", price:55,id:60, img:himalayaSoap},
+        {name:"Head & Shoulder Shampoo", price:99,id:61, img:hsShampoo},
+        {name:"Karthika Shampoo", price:125,id:62,img:karShampoo},
+        {name:"Pears Soap", price:70,id:63,img:pears},
+        {name:"Sunsilk Shampoo Soap", price:112,id:64,img:sunsilk}      
+    ]
+  },
+  {
+    category:"Beverages",
+    products:[
+      {name:"7up 600ml",price:48,id:65},
+      {name:"Bru 10rs",price:10,id:66},
+      {name:"Sunrise 20rs",price:20,id:67},
+      {name:"Narasu's 50g",price:65,id:68},
+      {name:"Soda",price:25,id:69},      
+      {name:"Coke",price:47,id:70},
+      {name:"Mala's Strawberry mix",price:189,id:71},
+      {name:"Orange Mix",price:35,id:72},
+      {name:"Maza 600ml",price:45,id:73},
+      {name:"Minute-Maid",price:25,id:74},
+      {name:"Red Label",price:179,id:75},
+      {name:"Tetley Green Tea",price:219,id:76},
+      {name:"Kanan Devan ",price:120,id:77},
+      {name:"Lipton Green Tea",price:140,id:78},
+      {name:"7up",price:48,id:79},
+    ]
+  },
+  {
+    category:"Essential",
+    products:[
+      {name:"Fortune Atta",price:65,id:80,},
+      {name:"Eastern chilli Powder",price:30,id:81},
+      {name:"Maida 500g",price:30,id:82},
+      {name:"Toor Dhall",price:160,id:83},
+      {name:"Moong Dhall",price:135,id:84},
+      {name:"Orid Dhall",price:175,id:85},
+      {name:"sugar 1kg",price:52,id:86},
+      {name:"Parrry's Sugar",price:65,id:87},
+      {name:"Fortune oil 1L",price:152,id:88},
+      {name:"Saffola Gold 1L",price:183,id:89},
+      {name:"Ground Nut oil",price:220,id:90},
+      {name:"Bamati rice 5kg",price:720,id:91},
+      {name:"Boiled Rice 26kg",price:1660,id:92},
+      {name:"Naga Rava 500g",price:48,id:93},
+      {name:"Pink Salt",price:90,id:94},
+      {name:"Rock Salt",price:38,id:95},
+
+    ]
+  },
+  {
+    category:"Grooming",
+    products:[
+      {name:"Axe Body Spray", price:180,id:96},
+      {name:"Axe Signature",price:215,id:97},
+      {name:"Axe Pocket",price:40,id:98},
+      {name:"Flora Women",price:249,id:99},
+      {name:"Fogg Black",price:299,id:100},
+      {name:"Neud Perfume",price:199,id:101},
+      {name:"Noor Perfume",price:320,id:102},
+      {name:"Parachute Hair Oil",price:99,id:103},
+      {name:"Dabur Amla oil",price:135,id:104},
+      {name:"Gillette Razor",price:89,id:105},
+      {name:"Venus Razor",price:119,id:106},
+      {name:"Nivea Soft",price:265,id:107}
+
+    ]
+  }
+
 
 ];
