@@ -69,7 +69,7 @@ const GroceryCategories = () => {
                 item
                 xs={9}
                 sx={{
-                    marginLeft: "25%",
+                    marginLeft: "20%",
                     padding: "20px",
                 }}
                 container
@@ -88,13 +88,13 @@ const GroceryCategories = () => {
             justifyContent: "space-between",
             alignItems: "center",
             textAlign: "center",
-            height: "24rem", // Fixed height for uniformity
+            height: "24rem",
             padding: 2,
         }}
     >
         {/* Image */}
         <img
-            src={product1}
+            src={product.img? product.img :  product1}
             alt="Product"
             style={{ width: "100%", height: "150px", objectFit: "cover" }}
         />

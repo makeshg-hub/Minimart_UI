@@ -1,8 +1,11 @@
+import cinthol from "../assets/pictures/bath/cinthol.jpg";
+import beverages from "../assets/pictures/beverages";
+
 export const groceryData = [
   {
     category: "Fruits & Vegetables",
     products: [
-      { name: "Apple (1kg)", price: 180, id: 1 },
+      { name: "Apple (1kg)", price: 180, id: 1, img: beverages },
       { name: "Banana (Dozen)", price: 60, id: 2 },
       { name: "Tomato (1kg)", price: 40, id: 3 },
       { name: "Potato (1kg)", price: 30, id: 4 },
