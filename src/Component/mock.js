@@ -7,10 +7,10 @@ import fw2 from "../assets/pictures/bath/face2.jpg";
 import fw3 from "../assets/pictures/bath/face3.png";
 import hamam from "../assets/pictures/bath/hamam.jpg";
 import himalayaSoap from "../assets/pictures/bath/himalaya soap.jpg";
- import hsShampoo from "../assets/pictures/bath/hs shampoo.jpg";
- import karShampoo from "../assets/pictures/bath/kar shampoo.jpg";
- import pears from "../assets/pictures/bath/pears.jpg ";
- import sunsilk from "../assets/pictures/bath/sunsilk.jpg";
+import hsShampoo from "../assets/pictures/bath/hs shampoo.jpg";
+import karShampoo from "../assets/pictures/bath/kar shampoo.jpg";
+import pears from "../assets/pictures/bath/pears.jpg";
+import sunsilk from "../assets/pictures/bath/sunsilk.jpg";
 
 
 
