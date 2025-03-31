@@ -128,7 +128,7 @@ header nav ul li a:hover {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-}
+} 
 
 .product-card {
   background-color: #fff;
