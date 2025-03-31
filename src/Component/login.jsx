@@ -1,19 +1,25 @@
-import React, { useState,  } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./login.css";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { addToUser } from "../redux/userSlice";
+import { useDispatch, useSelector,  } from "react-redux";
+
 
 
 
 const Login = () => {
+ 
   const [user, setUser] =useState( {
     email: "",
     password: "",
   });
   const navigate = useNavigate();
+      const dispatch = useDispatch();
+  
 
   const handleChangeEmail = (e) => {
     setUser((prevVal) => ({
@@ -43,7 +49,10 @@ const Login = () => {
         "http://localhost:8083/api/cart/login",
         data
       );
+      dispatch(addToUser(data));
       toast.success("Login Successful");
+      
+
       navigate("/")
       console.log(respone.data);
     } catch (err) {
@@ -60,7 +69,7 @@ const Login = () => {
         <h1>Login</h1>
         <form action="/login" method="post">
           <div className="input-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email   </label>
             {/* <input type="email" id="email" name="email" required /> */}
             <TextField
               type="email"
@@ -84,10 +93,9 @@ const Login = () => {
             />
           </div>
           <Button onClick={handleSubmit}>Login</Button>
-          <div className="links">
-            <Link to="/forgotpage">Forgot Password?</Link>
-            <Link to="/register">Create an Account</Link>
-          </div>
+          <Button onClick={() => {navigate("/forgotpage")}}>Forgot Password?</Button>
+          <Button onClick={() => {navigate("/register")}}>Create an Account</Button>
+          
         </form>
       </div>
     </div>

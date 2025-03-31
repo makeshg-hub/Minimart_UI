@@ -10,11 +10,11 @@ body {
 
 .login-container {
     display: flex;
+    margin-top: 10%;
+    margin-left: 30%;
     justify-content: center;
     align-items: center;
-    width: 100%;
     width: 420px;
-    margin-top: 30%;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -33,7 +33,10 @@ body {
 }
 
 .input-group {
-    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 2rem 15px 1rem;
+    align-items: center;
 }
 
 .input-group label {
@@ -57,14 +60,14 @@ button {
     padding: 10px;
     font-size: 16px;
     color: #fff;
-    background-color:  #28a745;
+    background-color: #1976d2;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #032e58;
 }
 
 .links {

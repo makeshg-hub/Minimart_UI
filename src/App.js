@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
 import Homepage from "./Component/homepage";
 import Forgot from "./Component/forgotpage";
 import Login from "./Component/login";
@@ -21,9 +22,18 @@ function Layout({ children }) {
 }
 
 function App() {
+  const userDtls = useSelector((state) => state.user.userDtl);
+  console.log(userDtls, "userDtl")
+
   return (
     <BrowserRouter>
-      <ToastContainer />
+      <ToastContainer  
+  autoClose={3000}
+  hideProgressBar={false}
+  closeOnClick
+  pauseOnHover
+  draggable
+  theme="light" />
       <Layout>
         <Routes>
           <Route index element={<Homepage />} />

@@ -1,21 +1,28 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart, clearCart } from "../redux/cartSlice";
-import { Card, CardContent, Typography, Button, Grid, IconButton } from "@mui/material";
+import { Card, CardContent, Typography, Button, Grid, IconButton, Tooltip } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "./header";
+import notAv from "../assets/pictures/imgNot.jpg"
+
 
 const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartItems = useSelector((state) => state.cart.cartItems);
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const userDtls = useSelector((state) => state.user.userDtl);
 
     const handleOrderPlaced = () => {
+        if(userDtls?.email == undefined || userDtls?.email == "" ){
+            toast.error("Please Login to Place Order")
+            return;
+        }
         dispatch(clearCart())
         toast.success("Order Placed")
 
@@ -23,11 +30,13 @@ const Cart = () => {
 
     }
 
+    console.log(cartItems, "cartItemscartItems")
+
 
     return (
         <>
         <div className ="home">
-        <div style={{ padding: "20px", margin: "auto" }}>
+        <div style={{ padding: "20px", margin: "auto" , color: "white"}}>
             <Typography variant="h4" align="center" gutterBottom>
                 Your Cart
             </Typography>
@@ -37,10 +46,16 @@ const Cart = () => {
             ) : (
                 <Grid container xs={12} >
                     {cartItems.map((item) => (
-                        <Grid item sx={{ margin: "5px" }} xs={4} key={item.id}>
-                            <Card elevation={3}>
+                        <Grid item sx={{ margin: "5px" }} xs={3.9} key={item.id}>
+                            <Card elevation={3} >
                                 <CardContent style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                                     <div>
+                                    <img
+            src={item.img? item.img :  notAv}
+            alt="Product"
+            style={{ width: "100%", height: "150px", objectFit: "cover" }}
+        />
+                                        </div><div>
                                         <Typography variant="h6">{item.name}</Typography>
                                         <Typography variant="body1">Price: ₹{item.price}</Typography>
                                     </div>
@@ -95,7 +110,7 @@ const Cart = () => {
                     >
                         Clear Cart
                     </Button>
-                    <Button
+                    <Tooltip title= {userDtls?.email != undefined && userDtls?.email != "" ? "Place Order" : "Please Login to place Order" } ><Button
                         variant="contained"
                         color="primary"
                         onClick={() => { handleOrderPlaced() }}
@@ -103,6 +118,7 @@ const Cart = () => {
                     >
                         Place Order
                     </Button>
+                    </Tooltip>
                 </div>
             )}
         </div>

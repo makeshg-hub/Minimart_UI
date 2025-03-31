@@ -45,7 +45,7 @@ const Forgot = ()=>{
             <h1>Forgot Password</h1>
             <p>Enter your email.We will send you a verification code to reset your password</p>
             <form action="">
-                <div className="forgot-group">
+                <div className="input-group">
                     <label htmlFor="email">Email</label>
                     {/* <input type="email" id="email" name="email" required/> */}
                     <TextField
@@ -58,9 +58,8 @@ const Forgot = ()=>{
                     />
                 </div>
                 <Button onClick={handleSubmit}>Continue</Button>
-                <div className="links">
-                    <Link to="/login">Back</Link>
-                </div>
+                <Button onClick={() => {nav("/login")}}>Back</Button>
+                
 
             </form>
         </div>

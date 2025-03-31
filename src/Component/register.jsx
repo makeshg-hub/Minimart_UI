@@ -4,7 +4,12 @@ import "./register.css";
 import { Button, TextField } from "@mui/material";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { addToUser } from "../redux/userSlice";
+import { useDispatch, useSelector, } from "react-redux";
 const Register = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -67,6 +72,7 @@ const Register = () => {
         "http://localhost:8083/api/cart/sign-up",
         data
       );
+      dispatch(addToUser(data));
       toast.success("Registration successful!");
       console.log(response.data);
     } catch (err) {
@@ -151,9 +157,7 @@ const Register = () => {
             />
           </div>
           <Button onClick={handleSubmit}>Sign Up</Button>
-          <div className="links">
-            <Link to="/login">Already have an account? Login</Link>
-          </div>
+          <Button onClick={() => { navigate("/login") }}>Already have an account? Login</Button>
         </form>
       </div>
     </div>
