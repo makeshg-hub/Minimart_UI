@@ -114,7 +114,6 @@ header nav ul li a:hover {
 /* Products Section */
 .products {
   width: 100vw;
- 
   margin-bottom: 3rem;
   text-align: center;
 }
@@ -128,6 +127,7 @@ header nav ul li a:hover {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+
 } 
 
 .product-card {

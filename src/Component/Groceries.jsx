@@ -40,6 +40,9 @@ const GroceryCategories = () => {
                     padding: 2,
                     borderRight: "2px solid #ddd",
                     marginTop: "4rem",
+                    maxHeight:"86%",
+                    overflowX:"hidden",
+                    overflowY:"auto"
                 }}
             >
                 {groceryData.map((category) => (
