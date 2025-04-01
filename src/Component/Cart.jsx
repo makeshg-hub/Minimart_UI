@@ -10,7 +10,6 @@ import { toast } from "react-toastify";
 import Header from "./header";
 import notAv from "../assets/pictures/imgNot.jpg"
 
-
 const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
