@@ -44,7 +44,7 @@ const Change = ()=>{
       newPassword:user.password
     }
     try{
-      const response=await axios.post("http://localhost:8083/api/cart/reset-password",data)
+      const response=await axios.post("https://minimart-50025724243.development.catalystappsail.in/api/cart/reset-password",data)
       toast.success("Password Changed")
       nav("/homepage")
       console.log(response.data)

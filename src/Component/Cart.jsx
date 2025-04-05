@@ -9,6 +9,9 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "./header";
 import notAv from "../assets/pictures/imgNot.jpg"
+import axios from "axios";
+
+
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -17,15 +20,29 @@ const Cart = () => {
     const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     const userDtls = useSelector((state) => state.user.userDtl);
 
-    const handleOrderPlaced = () => {
+    const handleOrderPlaced = async () => {
         if(userDtls?.email == undefined || userDtls?.email == "" ){
             toast.error("Please Login to Place Order")
             return;
         }
-        dispatch(clearCart())
-        toast.success("Order Placed")
+        const data  = {id: 1,email:userDtls?.email,  items: cartItems};
+        
+         try {
+              const respone = await axios.post(
+                "https://minimart-50025724243.development.catalystappsail.in/api/order/saveOrder",
+                data
+              );
+              dispatch(clearCart())
+              toast.success("Order Placed")        
+              navigate("/")
+            } catch (err) {
+              toast.error(
+                "An error occured" +
+                  (err.respone ? err.respone.data.message : err.message)
+              );
+            }
+       
 
-        navigate("/")
 
     }
 
@@ -128,3 +145,4 @@ const Cart = () => {
 };
 
 export default Cart;
+

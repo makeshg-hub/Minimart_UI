@@ -46,7 +46,7 @@ const Login = () => {
     };
     try {
       const respone = await axios.post(
-        "http://localhost:8083/api/cart/login",
+        "https://minimart-50025724243.development.catalystappsail.in/api/cart/login",
         data
       );
       dispatch(addToUser(data));

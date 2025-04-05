@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../redux/cartSlice";
 import { groceryData } from "./mock";
 import product1 from "../assets/product1.jpg";
 import { Card, CardContent, Typography, Grid, Button, CardActions } from "@mui/material";
+import axios from "axios";
+
 
 const GroceryCategories = () => {
     const [selectedCategory, setSelectedCategory] = useState("Fruits & Vegetables");
     const cartItems = useSelector((state) => state.cart.cartItems);
     const dispatch = useDispatch();
+
+    useEffect (() => {
+        const test = async () => {
+        try {
+            const res = await axios.get(
+              "https://minimart-50025724243.development.catalystappsail.in/api/cart/test",
+            );
+            console.log(res)
+           
+          } catch (err) {
+            
+          }
+        }
+        test();
+    })
 
     const handleCategoryClick = (category) => {
         setSelectedCategory(category === selectedCategory ? null : category);

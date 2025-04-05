@@ -28,7 +28,7 @@ const Forgot = ()=>{
             email:user.email
         }
         try{
-            const response=await axios.post("http://localhost:8083/api/cart/forgot-password",data)
+            const response=await axios.post("https://minimart-50025724243.development.catalystappsail.in/api/cart/forgot-password",data)
             toast.success("OTP sent to email id")
             nav("/changepassword")
             console.log(response.data)

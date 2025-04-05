@@ -69,7 +69,7 @@ const Register = () => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:8083/api/cart/sign-up",
+        "https://minimart-50025724243.development.catalystappsail.in/api/cart/sign-up",
         data
       );
       dispatch(addToUser(data));

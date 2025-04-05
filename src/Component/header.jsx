@@ -30,12 +30,11 @@ function Header() {
         {userDtls?.email != undefined && userDtls?.email != "" ? <button onClick={() => dispatch(clearUser()) }>Log Out</button> :
              <button onClick={() => navigate('/login')}>Login</button>}
           <li><a href="/"><b>Home</b></a></li>
-          <li><a href="/"><b>Contact</b></a></li>
-          <li><a href="/cart"><b> <IconButton color="primary">
+          <li><b> <IconButton color="primary" onClick={() => {navigate("/cart")}}>
             <Badge badgeContent={cartCount} color="error">
               <ShoppingCartIcon href="/cart" />
             </Badge>
-          </IconButton></b></a></li>
+          </IconButton></b></li>
         </ul>
       </nav>
     </header>
