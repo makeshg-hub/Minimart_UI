@@ -74,7 +74,7 @@ const Register = () => {
       );
       dispatch(addToUser(data));
       toast.success("Registration successful!");
-      console.log(response.data);
+      navigate("/")
     } catch (err) {
       toast.error(err.response.data)
     }

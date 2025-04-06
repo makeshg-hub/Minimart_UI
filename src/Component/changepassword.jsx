@@ -46,17 +46,17 @@ const Change = ()=>{
     try{
       const response=await axios.post("https://minimart-50025724243.development.catalystappsail.in/api/cart/reset-password",data)
       toast.success("Password Changed")
-      nav("/homepage")
+      nav("/")
       console.log(response.data)
     }catch(err){
-      toast.error("An error occured"+(err.response?err.response.data.message:err.message))
+      toast.error((err.response?err.response.data:err.message))
       
 
     }
   }
     return(
         <div className="change-container">
-      <div className="change-form">
+      <div className="input-form">
         <h1>Change Password</h1>
         <p>Enter a code sent to your email</p>
 

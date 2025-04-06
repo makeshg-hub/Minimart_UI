@@ -45,7 +45,7 @@ const Login = () => {
       password: user.password,
     };
     try {
-      const respone = await axios.post(
+      const response = await axios.post(
         "https://minimart-50025724243.development.catalystappsail.in/api/cart/login",
         data
       );
@@ -54,11 +54,10 @@ const Login = () => {
       
 
       navigate("/")
-      console.log(respone.data);
+      console.log(response.data);
     } catch (err) {
       toast.error(
-        "An error occured" +
-          (err.respone ? err.respone.data.message : err.message)
+          (err.response ? err.response.data : err.message)
       );
     }
   };

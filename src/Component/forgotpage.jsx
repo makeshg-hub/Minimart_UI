@@ -34,7 +34,7 @@ const Forgot = ()=>{
             console.log(response.data)
 
         }catch(err){
-            toast.error("An error occured"+(err.response.data.message))
+            toast.error((err.response.data))
             
 
         }

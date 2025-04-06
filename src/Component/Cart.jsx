@@ -28,7 +28,7 @@ const Cart = () => {
         const data  = {id: 1,email:userDtls?.email,  items: cartItems};
         
          try {
-              const respone = await axios.post(
+              const response = await axios.post(
                 "https://minimart-50025724243.development.catalystappsail.in/api/order/saveOrder",
                 data
               );
@@ -37,8 +37,7 @@ const Cart = () => {
               navigate("/")
             } catch (err) {
               toast.error(
-                "An error occured" +
-                  (err.respone ? err.respone.data.message : err.message)
+                  (err.response ? err.response.data : err.message)
               );
             }
        
